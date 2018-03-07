@@ -1,0 +1,48 @@
+apiVersion: "apps/v1beta1"
+kind: Deployment
+metadata:
+  name: party-c
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: party-c
+  template:
+    metadata:
+      labels:
+        app: party-c
+    spec:
+      containers:
+      - name: node
+        image: corda:2.0.0
+        env:
+        - name: "CONFIG_FILE"
+          value: "/config/party-c.conf"
+        ports:
+        - containerPort: 10002
+        volumeMounts:
+        - name: config
+          mountPath: /config
+          readOnly: true
+        - name: certificates
+          mountPath: /app/certificates
+      - name: web
+        image: corda:2.0.0
+        args: ["web"]
+        env:
+        - name: "CONFIG_FILE"
+          value: "/config/party-c.conf"
+        ports:
+        - containerPort: 10004
+        volumeMounts:
+        - name: config
+          mountPath: /config
+          readOnly: true
+        - name: certificates
+          mountPath: /app/certificates
+      volumes:
+      - name: certificates
+        emptyDir: {}
+      - name: config
+        configMap:
+          name: corda
