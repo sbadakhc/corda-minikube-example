@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: party-a
 spec:
+  type: NodePort
   ports:
     - name: p2p
       port: 10002

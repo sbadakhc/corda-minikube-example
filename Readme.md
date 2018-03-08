@@ -7,11 +7,13 @@ Follow the steps below to get started.
 eval $(minikube docker-env)
 ./build-container.sh
 ./start.sh
-kubectl port-forward party-a-<replicaset>-<pod> 10004
+minikube service party-a
 ./stop.sh
 ```
 
-You can now reach Party A's webserver at `http://127.0.0.1:10004`.
+After running `minikube service party-a` Party A's website opens in your browser.
+
+Only the `default` kubernetes namespace is supported.
 
 Note that you might encounter the "pod unable to reach itself through a
 service" [issue](https://github.com/kubernetes/minikube/issues/1568), when the
