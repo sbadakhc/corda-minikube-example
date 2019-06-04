@@ -1,3 +1,3 @@
-kubectl delete configmap corda
-kubectl delete -f services/
-kubectl delete -f deployments/
+kubectl -n jx delete configmap corda
+kubectl -n jx delete -f services/
+kubectl -n jx delete -f deployments/
