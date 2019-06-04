@@ -1,4 +1,4 @@
-FROM openjdk:8u151-jre-alpine
+FROM openjdk:8-alpine
 
 #RUN mkdir -p /app/plugins
 COPY plugins/kotlin-source-0.1.jar /app/plugins/
