@@ -1,3 +1,3 @@
-kubectl -n jx create configmap corda --from-file=config
-kubectl -n jx apply -f services/
-kubectl -n jx apply -f deployments/
+kubectl -n default create configmap corda --from-file=config
+kubectl -n default apply -f services/
+kubectl -n default apply -f deployments/

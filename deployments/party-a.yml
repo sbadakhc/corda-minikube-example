@@ -1,4 +1,4 @@
-apiVersion: "apps/v1beta1"
+apiVersion: "apps/v1"
 kind: Deployment
 metadata:
   name: party-a
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: corda:4.0
+        image: corda:4.1
         env:
         - name: "CONFIG_FILE"
           value: "/config/party-a.conf"
