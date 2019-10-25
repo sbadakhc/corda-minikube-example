@@ -27,7 +27,7 @@ spec:
         - name: certificates
           mountPath: /app/certificates
       - name: web
-        image: corda:4.0
+        image: corda:4.1
         args: ["web"]
         env:
         - name: "CONFIG_FILE"
